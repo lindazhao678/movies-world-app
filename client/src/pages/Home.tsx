@@ -12,7 +12,7 @@ const Home: FC = () => {
   return (
     <Container>
       <div>Welcome to the Movies World DVDs Shops</div>
-      <MWButton value={'Sign Up'}/>
+      <MWButton>{'Sign Up'}</MWButton>
       <Showcase title={'Our New Arrival'} imageURLs={arrivalsImageURLs} />
       <Showcase title={'Our Top Picks'} imageURLs={topPicksImageURLs} />
     </Container>

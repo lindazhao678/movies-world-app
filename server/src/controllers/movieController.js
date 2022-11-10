@@ -45,13 +45,21 @@ module.exports = {
             // Store the document query in variable
             const movieRef = db.collection('movies')
 
-            // search the movie that title start with search keywords 
+            // search the movie that title start with search keywords and sort by stock
+            // const snapshot = await movieRef
+            //     .where("title", ">=", "a")
+            //     .where('title', '<=', "a" + '\uf8ff')
+            //     .orderBy("title", "asc")
+            //     .orderBy("stock", "asc")
+            //     .get()
+
+            // Search the movie that title start with search keyworks and sort by rate
             const snapshot = await movieRef
-                .orderBy("title", "asc")
                 .where("title", ">=", "a")
                 .where('title', '<=', "a" + '\uf8ff')
+                .orderBy("title", "asc")
+                .orderBy("rate", "desc")
                 .get()
-
             // [400 error] Check for non-existent docs
             if (snapshot.empty) {
                 return next(ApiError.badRequest('The movies you were looking for do not exist'))

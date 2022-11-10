@@ -16,22 +16,22 @@ const Header: FC = () => {
       <Container>
         <Navbar.Brand href="/">
           <BiMoviePlay className="mb-1 me-3 fs-1" />
-          Movies World CDs Shop
+          Movies World DVDs Shop
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           {/* LEFT MAIN NAVS */}
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/currency/prices">
+            <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/crypto/prices">
+            <Nav.Link as={Link} to="/gallery">
               Movies Gallery
             </Nav.Link>
-            <Nav.Link as={Link} to="/about">
+            <Nav.Link as={Link} to="/dvd">
               Our DVDs
             </Nav.Link>
-            <Nav.Link as={Link} to="/about">
+            <Nav.Link as={Link} to="/dvd/search">
               Search DVDs
             </Nav.Link>
             <Nav.Link as={Link} to="/about">

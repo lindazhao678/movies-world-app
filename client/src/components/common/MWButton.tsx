@@ -5,7 +5,6 @@ import { Button } from 'react-bootstrap'
 import styled from 'styled-components'
 
 const StyledButton = styled(Button)`
-  width: 100%;
   border-radius: 1rem;
   border: none;
   background-color: var(--brand);
@@ -18,13 +17,32 @@ const StyledButton = styled(Button)`
   }
 `
 
-interface ButtonProps {
-  value: string
+export enum ButtonType {
+  Button,
+  Submit
 }
 
-const MWButton: FC<ButtonProps> = ({ value }) => {
+interface ButtonProps {
+  children?: string
+  variant?: string
+  type?: string
+  loadingState?: boolean
+  onClick?: Function
+  disabled?: boolean
+  className?: string
+}
+
+const MWButton: FC<ButtonProps> = ({ children, variant, type, loadingState, onClick, disabled, className }) => {
   return (
-    <StyledButton />
+    <StyledButton
+      variant={variant}
+      type={type}
+      onClick={onClick}
+      className={loadingState && 'button-gradient-loading'}
+      disabled={loadingState}
+    >
+      {children}
+    </StyledButton>
   )
 }
 

@@ -6,7 +6,7 @@ const Footer: FC = () => {
   }
   return (
     <div className="py-3">
-       Copyright &copy; {getCurrentYear()} Movies World DVDs Shop
+      Copyright &copy; {getCurrentYear()} Movies World DVDs Shop
       <a
         href="https://lijunzhao.com"
         target="_blank"
