@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap'
 import styled from 'styled-components'
 
 const StyledButton = styled(Button)`
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: none;
   background-color: var(--brand);
   transition: all 0.2s;

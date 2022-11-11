@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import styled from "styled-components";
 import useAuth from "../../hooks/useAuth";
 import ErrorPage from "../../components/common/ErrorPage";
 import Loader from "../../components/common/Loader";
@@ -8,6 +8,16 @@ import dvdService from "../../services/dvdService";
 import MWNavLink from "../../components/common/MWNavLink";
 import MWButton from "../../components/common/MWButton";
 import { Container } from "react-bootstrap";
+
+const DetailsCard = styled.div`
+  margin: 5rem auto 2rem;
+  padding: 2rem 2rem;
+  height: 30vw;
+  width: 80vh;
+  background: #f2f2f2;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+`;
 
 const Details = () => {
   //Custom Hooks
@@ -104,8 +114,8 @@ const Details = () => {
   }
 
   return (
-    <div className="main">
-      <div className="container pt-5">
+    <Container>
+      <DetailsCard>
         <h1 className="py-5 text-center">{title}</h1>
         <div className="info-section row align-items-center justify-content-center">
           <div className="info-image col-6 col-md-4">
@@ -121,16 +131,20 @@ const Details = () => {
               <li>Rate: {rate}</li>
               <li>Stock: {stock}</li>
             </ul>
-            <div>
-              <MWNavLink to={`/dvd/edit/${id}`}>Edit</MWNavLink>
-              <MWButton onClick={handleDeleteClick} loadingState={loading}>
-                {loading ? "..." : "Delete"}
-              </MWButton>
-            </div>
           </div>
         </div>
+      </DetailsCard>
+      { user && user.IsAdmin && 
+      <div className="text-center">
+       
+        <MWNavLink className={'me-5'} to={`/dvd/edit/${id}`}>Edit</MWNavLink>
+        <MWButton onClick={handleDeleteClick} loadingState={loading}>
+          {loading ? "..." : "Delete"}
+        </MWButton>
+     
       </div>
-    </div>
+         }
+    </Container>
   );
 };
 

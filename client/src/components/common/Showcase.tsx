@@ -1,6 +1,23 @@
 import React, { FC } from 'react'
-
+import styled from "styled-components";
 import { Container, Row, Col } from 'react-bootstrap'
+
+// Custom Styles
+const ShowcaseCard = styled.div`
+padding: 2rem 2rem;
+  height: 25vw;
+  width: 100%;
+  background: #f2f2f2;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+`
+
+const StyledImage = styled.img`
+  margin-top: 1rem;
+  width: 200px;
+  padding: 1rem;
+  opacity: 0.8;
+`
 
 interface ShowcaseProps {
   title: string
@@ -9,17 +26,19 @@ interface ShowcaseProps {
 
 const Showcase: FC<ShowcaseProps> = ({ title, imageURLs }) => {
   return (
-    <Container>
-      <h1>{title}</h1>
-      <Row>
-        {imageURLs.map(imageURL => {
-          return (<Col key={imageURL}>
-            <a href={imageURL} target="_blank" rel="noreferrer">
-              <img src={imageURL} />
-            </a>
-          </Col>)
-        })}
-      </Row>
+    <Container className="my-5">
+      <ShowcaseCard>
+        <h1>{title}</h1>
+        <Row>
+          {imageURLs.map(imageURL => {
+            return (<Col key={imageURL}>
+              <a href={imageURL} target="_blank" rel="noreferrer">
+                <StyledImage src={imageURL} alt="poster" />
+              </a>
+            </Col>)
+          })}
+        </Row>
+      </ShowcaseCard>
     </Container>
   )
 }

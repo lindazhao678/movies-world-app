@@ -1,15 +1,19 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-
+import styled from "styled-components";
 import DVDTableHeader from "./DVDTableHeader";
 import DVDTableBody from "./DVDTableBody";
 
-const DVDTable = ({ data, sortOrder, onSort }) => {
+const StyledTable = styled(Table)`
+  width: 70%;
+  margin: 0 auto;
+`
+const DVDTable = ({ data, sortOrder, onSort, disableSort }) => {
   return (
-    <Table striped bordered hover variant="dark" className="my-4">
-      <DVDTableHeader sortOrder={sortOrder} onSort={onSort} />
+    <StyledTable striped bordered hover variant="dark" className="mt-5">
+      <DVDTableHeader sortOrder={sortOrder} onSort={onSort} disableSort={disableSort} />
       <DVDTableBody data={data} />
-    </Table>
+    </StyledTable>
   );
 };
 

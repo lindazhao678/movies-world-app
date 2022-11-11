@@ -81,8 +81,8 @@ const AllDVDs = () => {
  
   // DEFAULT LOAD: SUCCESS API CALL
   return (
-    <Container>
-      <h1>Our DVDs</h1>
+    <Container className="my-5">
+      <h1 className="text-center">Our DVDs</h1>
       <DVDTable data={data} sortOrder={sortOrder} onSort={sort} />
     </Container>
   );

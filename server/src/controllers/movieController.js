@@ -55,8 +55,8 @@ module.exports = {
 
             // Search the movie that title start with search keyworks and sort by rate
             const snapshot = await movieRef
-                .where("title", ">=", "a")
-                .where('title', '<=', "a" + '\uf8ff')
+                .where("title", ">=", `${req.query.title}`)
+                .where('title', '<=', `${req.query.title}` + '\uf8ff')
                 .orderBy("title", "asc")
                 .orderBy("rate", "desc")
                 .get()

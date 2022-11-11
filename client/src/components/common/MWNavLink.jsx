@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledLink = styled(Link)`
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: 2px solid var(--brand);
   color: var(--brand);
   transition: all 0.2s;
@@ -23,8 +23,8 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const MWNavLink = ({ to, children }) => {
-  return <StyledLink to={to}>{children}</StyledLink>;
+const MWNavLink = ({ to, children, className }) => {
+  return <StyledLink to={to} className={className}>{children}</StyledLink>;
 };
 
 export default MWNavLink;

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { Row, Col, Form, InputGroup } from "react-bootstrap";
 
-import dvdService from "../../services/dvdService"
+import dvdService from "../../services/dvdService";
 import MWButton from "../../components/common/MWButton";
+import FormCard from "../../components/common/FormCard";
 
 const AddDVD = () => {
   // HOOK: SETTING COMPONENT STATE (& init values)
@@ -17,7 +18,7 @@ const AddDVD = () => {
   const [loading, setLoading] = useState(false);
 
   // Destructure data state nested object properties & instance of useNavigate class
-  const { title, genre, rate, stock, image } = data;
+  const { title, genre, rate, stock } = data;
   const navigate = useNavigate();
 
   // FORM FUNCTIONS
@@ -57,15 +58,14 @@ const AddDVD = () => {
   };
 
   return (
-    <Container>
-      <h1 className="text-center my-5">Add DVD</h1>
+    <FormCard title={"Add DVD"}>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Title</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter Title"
-            name="name"
+            name="title"
             value={title}
             onChange={handleTextChange}
           />
@@ -75,15 +75,15 @@ const AddDVD = () => {
           <Form.Label>Genre</Form.Label>
           <Form.Control
             as="select"
-            placeholder="Select a Genre"
             name="genre"
             value={genre}
             onChange={handleTextChange}
           >
+            <option value="">Please Select</option>
             <option value="action">Action</option>
             <option value="comedy">Comedy</option>
             <option value="thriller">Thriller</option>
-            </Form.Control>
+          </Form.Control>
         </Form.Group>
 
         <Form.Group className="mb-3">
@@ -93,7 +93,6 @@ const AddDVD = () => {
               <InputGroup>
                 <Form.Control
                   type="number"
-                  placeholder="Enter rate"
                   name="rate"
                   value={rate}
                   onChange={handleTextChange}
@@ -106,7 +105,6 @@ const AddDVD = () => {
               <InputGroup>
                 <Form.Control
                   type="number"
-                  placeholder="Enter stock"
                   name="stock"
                   value={stock}
                   onChange={handleTextChange}
@@ -124,10 +122,13 @@ const AddDVD = () => {
             onChange={handleFileChange}
           />
         </Form.Group>
-
-        <MWButton loadingState={loading}>{loading ? "..." : "Submit"}</MWButton>
+        <div className="text-center">
+          <MWButton loadingState={loading}>
+            {loading ? "..." : "Submit"}
+          </MWButton>
+        </div>
       </Form>
-    </Container>
+    </FormCard>
   );
 };
 

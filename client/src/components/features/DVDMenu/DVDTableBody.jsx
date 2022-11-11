@@ -2,14 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import MWNavLink from "../../common/MWNavLink";
+
 const Image = styled.img`
   width: 1.5rem;
   margin: 0 1rem 0 0;
 `;
 
-const StyledLink = styled(Link)`
-  width: 7rem;
-  height: 2rem;
+const StyledLink = styled(MWNavLink)`
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  transition: all 0.2s;
+  padding: 0.3rem 1rem;
+  text-decoration: none;
+  margin: 0 0.4rem;
+  text-align: center;
 `;
 
 const DVDTableBody = ({ data }) => {
@@ -25,8 +33,8 @@ const DVDTableBody = ({ data }) => {
             <td>{item.genre}</td>
             <td>{item.rate}</td>
             <td>{item.stock}</td>
-            <td>
-              <StyledLink className="btn btn-light" to={`/dvd/${item.id}`}>
+            <td className="text-center">
+              <StyledLink to={`/dvd/${item.id}`}>
                 Details
               </StyledLink>
             </td>

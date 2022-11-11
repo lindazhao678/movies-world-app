@@ -2,7 +2,7 @@ import React from "react";
 import { FaSortUp, FaSortDown } from "react-icons/fa";
 
 const columns = [
-  { path: "image", label: "#" },
+  { path: "image", label: "poster" },
   { path: "title", label: "title" },
   { path: "genre", label: "genre" },
   { path: "rate", label: "rate" },
@@ -10,7 +10,7 @@ const columns = [
   { key: "detail-button", label: "" },
 ];
 
-const DVDTableHeader = ({ onSort, sortOrder }) => {
+const DVDTableHeader = ({ onSort, sortOrder, disableSort }) => {
   const renderSortIcon = () => {
     if (sortOrder === "rate_desc") return <FaSortDown />;
     return <FaSortUp />;
@@ -18,15 +18,24 @@ const DVDTableHeader = ({ onSort, sortOrder }) => {
   return (
     <thead>
       <tr>
-        {columns.map((column) => (
-          <th
+        {columns.map((column) => 
+           disableSort ? (
+            <th
+            key={column.path || column.key}
+          >
+            {column.label}
+          </th>
+          ):(
+            <th
             key={column.path || column.key}
             className={column.path === "rate" && "cursor-pointer"}
             onClick={onSort}
           >
             {column.label} {column.path === "rate" && renderSortIcon()}
           </th>
-        ))}
+          )
+         
+        )}
       </tr>
     </thead>
   );

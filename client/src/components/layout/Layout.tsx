@@ -10,7 +10,7 @@ import Footer from './Footer'
 
 const AppWrap = styled.div`
   flex: 1;
-  margin: 1rem 0;
+  margin: 0;
 `
 const layout: FC = () => {
   return (

@@ -36,11 +36,15 @@ function del(id) {
   return api.delete('/api/movie/' + id);
 };
 
+function search(title) {
+    return api.get(`/api/movie/searches?title=${title}`);
+}
+
 // REFACTORED VARIABLES/FUNCTIONS: Repeated code better abstracted to keep source code DRY (called above)
 // [1] Form Config: sets the content header to form data
 const formConfig = {
   headers: {
-    'content-type': 'multipart/form-data'
+    'Content-Type': 'multipart/form-data'
   }
 };
 
@@ -54,7 +58,6 @@ function prepareFormData(data, uploadedfile){
   formData.append('genre', data.genre);
   formData.append('rate', data.rate);
   formData.append('stock', data.stock);
-  formData.append('status', data.status);
   formData.append('image', data.image);
   if(uploadedfile) {
     formData.append('uploadedFile', uploadedfile)
@@ -89,6 +92,7 @@ const dvdService = {
   getById,
   put,
   del,
+  search,
   getFileFromUrl
 }
 

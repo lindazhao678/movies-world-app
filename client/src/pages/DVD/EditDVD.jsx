@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";
+import { Row, Col, Form, InputGroup } from "react-bootstrap";
 import styled from "styled-components";
-
+import FormCard from "../../components/common/FormCard";
 import dvdService from "../../services/dvdService";
 import MWButton from "../../components/common/MWButton";
 import ErrorPage from "../../components/common/ErrorPage";
@@ -144,14 +144,13 @@ const EditDVD = () => {
   }
 
   return (
-    <Container>
-      <h1 className="text-center my-5">Edit DVD</h1>
+    <FormCard title={"Add DVD"}>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Title</Form.Label>
           <Form.Control
             type="text"
-            name="name"
+            name="title"
             value={title}
             onChange={handleTextChange}
           />
@@ -197,7 +196,7 @@ const EditDVD = () => {
 
         {/* GROUP: CONDITIONAL PREVIEW OF IMAGE (File in DB) */}
         {preview && !loading && (
-          <div className="text-center mt-2 mb-5">
+          <div className="text-center mt-2">
             <h6>Current Image</h6>
             <PreviewImage src={image} alt="preview" />
           </div>
@@ -206,16 +205,15 @@ const EditDVD = () => {
         {/* GROUP: IMAGE UPLOAD */}
         <Form.Group className="mb-3" controlId="image">
           <Form.Label>Image</Form.Label>
-          <Form.Control
-            type="file"
-            className="mb-4"
-            onChange={handleFileChange}
-          />
+          <Form.Control type="file" onChange={handleFileChange} />
         </Form.Group>
-
-        <MWButton loadingState={loading}>{loading ? "..." : "Submit"}</MWButton>
+        <div className="text-center">
+          <MWButton loadingState={loading}>
+            {loading ? "..." : "Submit"}
+          </MWButton>
+        </div>
       </Form>
-    </Container>
+    </FormCard>
   );
 };
 
