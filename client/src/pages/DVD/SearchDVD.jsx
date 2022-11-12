@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import useAuth from "../../hooks/useAuth";
 
 import { Container, Form, Row, Col } from "react-bootstrap";
 import MWButton from "../../components/common/MWButton";
@@ -11,16 +10,22 @@ import ErrorPage from "../../components/common/ErrorPage";
 import Loader from "../../components/common/Loader";
 
 const StyledSearch = styled.div`
-  min-height: 60vw;
-  background-color: #cbd5e1;
+  min-height: 90vh;
+  background-color: var(--highlight);
   display: flex;
+  flex-direction: column;
   justify-content: center;
 `;
 
-const SearchDVD = () => {
-  //   HOOK: CONTEXT FOR AUTH
-  const { user } = useAuth();
+const StyledCard = styled.div`
+  margin: 0 auto;
+  height: 20rem;
+  width: 50rem;
+  background: var(--highlight-light);
+  border-radius: 20px;
+`;
 
+const SearchDVD = () => {
   // HOOK: SETTING COMPONENT STATE (& init values)
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -31,9 +36,6 @@ const SearchDVD = () => {
     e.preventDefault();
     searchDVDs(inputElement.current.value);
   };
-
-  // HOOK: Prevention of useEffect calling TWICE (React v18)
-  const effectRan = useRef(false);
 
   // COMPONENT FUNCTIONS
   async function searchDVDs(query) {
@@ -65,39 +67,39 @@ const SearchDVD = () => {
     );
   }
 
-
-
   return (
     <StyledSearch>
-      <Container className="py-5">
-        <h1 className="py-5">Search DVDs</h1>
+      <StyledCard>
+        <h1 className="py-5 text-center">Search DVDs</h1>
         <Form onSubmit={handleSearch}>
-          <Form.Group className="m-5" >
+          <Form.Group className="mx-5">
             <Row>
               <Col>
-              <Form.Label>Search Our DVDs by Title</Form.Label>
+                <Form.Label className="fs-5">Search Our DVDs by Title:</Form.Label>
               </Col>
-              </Row>
-              <Row><Col>
+              <Col xs={6}>
                 <Form.Control
                   type="text"
                   placeholder="search..."
                   name="title"
                   ref={inputElement}
-                /></Col><Col>
-                  <MWButton loadingState={loading}>
+                />
+              </Col>
+              <Col xs={2}>
+                <MWButton loadingState={loading}>
                   {loading ? "..." : "Search"}
-                </MWButton></Col>
-                </Row>
+                </MWButton>
+              </Col>
+            </Row>
           </Form.Group>
         </Form>
-        {data.length > 0 && (
-          <div>
-            <h1 >Search Results</h1>
-            <DVDTable data={data} disableSort={true} />
-          </div>
-        )}
-      </Container>
+      </StyledCard>
+      {data.length > 0 && (
+        <div>
+          <h1 className="text-center mt-5">Search Results</h1>
+          <DVDTable data={data} disableSort={true} />
+        </div>
+      )}
     </StyledSearch>
   );
 };

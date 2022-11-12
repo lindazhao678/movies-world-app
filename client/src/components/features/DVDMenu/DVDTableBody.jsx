@@ -10,14 +10,8 @@ const Image = styled.img`
 `;
 
 const StyledLink = styled(MWNavLink)`
-  border-radius: 0.5rem;
   border: 1px solid var(--primary);
   color: var(--primary);
-  transition: all 0.2s;
-  padding: 0.3rem 1rem;
-  text-decoration: none;
-  margin: 0 0.4rem;
-  text-align: center;
 `;
 
 const DVDTableBody = ({ data }) => {

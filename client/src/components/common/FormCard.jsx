@@ -16,9 +16,9 @@ const Styles = styled.div`
     padding: 2rem 2rem;
     height: 50vw;
     width: 60vw;
-    background: #f2f2f2;
+    background: var(--highlight-light);
     border-radius: 20px;
-    box-shadow: 0 0 20px 8px #d0d0d0;
+    box-shadow: 0 0 20px 8px var(--highlight);
   }
 `;
 

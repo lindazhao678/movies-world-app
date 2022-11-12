@@ -5,9 +5,9 @@ import GalleryCard from "./GalleryCard";
 const GalleryCards = ({ movies }) => {
     console.log()
   return (
-    <Row>
+    <Row className="mt-5">
       {movies.map((movie) => (
-        <Col xs={3}>
+        <Col xs={3} className="mb-4">
         <GalleryCard movie={movie} />
        </Col>
       ))}

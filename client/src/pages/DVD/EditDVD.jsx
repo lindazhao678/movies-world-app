@@ -11,10 +11,10 @@ import Loader from "../../components/common/Loader";
 // Custom Styles
 const PreviewImage = styled.img`
   margin-top: 1rem;
-  width: 250px;
+  width: 15rem;
   padding: 1rem;
-  border: 5px solid var(--brand);
-  border-radius: 50%;
+  border: 2px solid var(--brand);
+  border-radius: 20px;
   opacity: 0.8;
 `;
 
@@ -159,11 +159,16 @@ const EditDVD = () => {
         <Form.Group className="mb-3">
           <Form.Label>Genre</Form.Label>
           <Form.Control
-            type="text"
+            as="select"
             name="genre"
             value={genre}
             onChange={handleTextChange}
-          />
+          >
+            <option value="">Please Select</option>
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="thriller">Thriller</option>
+          </Form.Control>
         </Form.Group>
 
         <Form.Group className="mb-3">

@@ -19,7 +19,6 @@ import Details from './pages/DVD/Details'
 import AddDVD from './pages/DVD/AddDVD'
 import EditDVD from './pages/DVD/EditDVD'
 import SearchDVD from './pages/DVD/SearchDVD'
-import About from './pages/About'
 import PageNotFound from './pages/PageNotFound'
 
 
@@ -40,7 +39,6 @@ const App = () => {
         <Route path="/dvd/add" element={<AddDVD />} />
         <Route path="/dvd/edit/:id" element={<EditDVD />} />
         <Route path="/dvd/search" element={<SearchDVD />} />
-        <Route path="/about" element={<About />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>

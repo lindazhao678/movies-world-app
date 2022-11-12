@@ -48,7 +48,7 @@ const AddDVD = () => {
     setLoading(true);
     try {
       // API Post (refactored)
-      const response = await dvdService.post(data);
+      await dvdService.post(data);
       navigate("/dvd");
     } catch (err) {
       console.log(err?.response);

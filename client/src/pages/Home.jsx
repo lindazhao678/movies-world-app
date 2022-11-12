@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 // Import npm packages
 import MWNavLink from "../components/common/MWNavLink";
@@ -7,7 +7,7 @@ import { getNewArrivalsData, getTopPicksData } from "../services/homePageData";
 
 const Hero = styled.div`
   height: 25vw;
-  background-color: #cbd5e1;
+  background-color: var(--highlight);
   display: flex;
   flex-direction: column;
   justify-content: center;

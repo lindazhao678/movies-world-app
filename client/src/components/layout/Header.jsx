@@ -36,9 +36,6 @@ const Header = () => {
             <Nav.Link as={Link} to="/dvd/search">
               Search DVDs
             </Nav.Link>
-            <Nav.Link as={Link} to="/about">
-              About Us
-            </Nav.Link>
           </Nav>
           {/* RIGHT AUTH NAVS */}
           <Nav>
@@ -59,7 +56,7 @@ const Header = () => {
             )}
             {user && (
               <Nav.Link
-                className="btn btn-info btn-sm"
+                className="btn btn-outline-primary"
                 role="button"
                 onClick={() => {
                   logout();

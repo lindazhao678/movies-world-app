@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 interface AuthCardProps {
   title: string;
-  children: JSX.Element|JSX.Element[];
+  children: JSX.Element | JSX.Element[];
 }
 
 const Styles = styled.div`
@@ -17,14 +17,13 @@ const Styles = styled.div`
     flex-direction: column;
   }
   .lead-card {
-    margin: auto;
-    padding: 2rem;
-    background-color: var(--primary);
-    border-radius: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    min-width: "30vw";
-    text-align: center;
-  }
+    margin: 3rem auto;
+    padding: 2rem 2rem;
+    width: 30vw;
+    background: var(--highlight-light);
+    border-radius: 20px;
+    box-shadow: 0 0 20px 8px var(--highlight);
+
   .lead-card .card-title {
     padding-bottom: 1rem;
     font-size: 2em;
@@ -36,7 +35,7 @@ const AuthCard: FC<AuthCardProps> = ({ title, children }) => (
   <Styles>
     <Container>
       <div className="lead-card">
-        <p className="card-title">{title}</p>
+        <h1 className="card-title text-center my-3">{title}</h1>
         <div>{children}</div>
       </div>
     </Container>

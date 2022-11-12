@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Form } from "react-bootstrap";
@@ -67,14 +67,16 @@ const Login = () => {
             onChange={handleTextChange}
           />
         </Form.Group>
-        <MWButton
-          variant="primary"
-          type={'submit'}
-          disabled={loading}
-          className={loading ? "button-gradient-loading" : ""}
-        >
-          {loading ? "..." : "Submit"}
-        </MWButton>
+        <div className="text-center my-3">
+          <MWButton
+            variant="primary"
+            type={"submit"}
+            disabled={loading}
+            className={loading ? "button-gradient-loading" : ""}
+          >
+            {loading ? "..." : "Submit"}
+          </MWButton>
+        </div>
       </Form>
       <p>
         If you havn't have an account, click <Link to="/register">here</Link> to

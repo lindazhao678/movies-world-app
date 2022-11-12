@@ -4,12 +4,12 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 // Custom Styles
 const ShowcaseCard = styled.div`
-padding: 2rem 2rem;
+  padding: 2rem 2rem;
   height: 25vw;
   width: 100%;
-  background: #f2f2f2;
+  background: var(--highlight-light);
   border-radius: 20px;
-  box-shadow: 0 0 20px 8px #d0d0d0;
+  box-shadow: 0 0 20px 8px var(--highlight);
 `
 
 const StyledImage = styled.img`

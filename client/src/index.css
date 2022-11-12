@@ -7,17 +7,15 @@
   /* TAILWIND: GRAY 900 */
   --complementary: #111827;
 
-  /* TAILWIND: GRAY 200-400 */
-  --highlight-super-light: #f9fafb;
-  --highlight-light: #e5e7eb;
-  --highlight: #d1d5db;
-  --highlight-dark: #9ca3af;
-  --highlight-super-dark: #4b5563;
+  /* TAILWIND: Slate 300 */
+  --highlight-light: #f2f2f2;
+  --highlight: #cbd5e1;
+  --highlight-dark: #94a3b8;
   
-  /* TAILWIND: INDIGO 600-700 */
-  --brand-light: #6366f1;
-  --brand: #4f46e5; 
-  --brand-dark: #3730a3;
+  /* TAILWIND: blue 600-800 */
+  --brand-light: #2563eb;
+  --brand: #1d4ed8; 
+  --brand-dark: #1e40af;
 
   /* TAILWIND: GREEN 600 */
   --success: #16a34a; 

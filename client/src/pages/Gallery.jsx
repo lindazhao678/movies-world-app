@@ -3,7 +3,6 @@ import axios from "axios";
 import styled from "styled-components";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import ErrorPage from "../components/common/ErrorPage";
-import Loader from "../components/common/Loader";
 import { toast } from "react-toastify";
 import MWButton from "../components/common/MWButton";
 import GalleryCards from "../components/features/galleryMenu/GalleryCards";
@@ -78,11 +77,12 @@ const Gallery = () => {
                   placeholder="search..."
                   name="title"
                   ref={inputElement}
+                  defaultValue="Avengers"
                 />
               </Col>
               <Col>
                 <MWButton loadingState={loading}>
-                  {loading ? "..." : "Submit"}
+                  {loading ? "..." : "Search"}
                 </MWButton>
               </Col>
             </Row>

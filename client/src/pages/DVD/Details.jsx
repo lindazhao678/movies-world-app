@@ -14,9 +14,9 @@ const DetailsCard = styled.div`
   padding: 2rem 2rem;
   height: 30vw;
   width: 80vh;
-  background: #f2f2f2;
+  background: var(--highlight-light);
   border-radius: 20px;
-  box-shadow: 0 0 20px 8px #d0d0d0;
+  box-shadow: 0 0 20px 8px var(--highlight);
 `;
 
 const Details = () => {
@@ -73,7 +73,7 @@ const Details = () => {
 
       // onSuccess - Redirect
       setLoading(false);
-      navigate("/dvds");
+      navigate("/dvd");
     } catch (err) {
       console.log(err?.response);
       setError(true);
@@ -134,7 +134,7 @@ const Details = () => {
           </div>
         </div>
       </DetailsCard>
-      { user && user.IsAdmin && 
+      { user && user.isAdmin && 
       <div className="text-center">
        
         <MWNavLink className={'me-5'} to={`/dvd/edit/${id}`}>Edit</MWNavLink>

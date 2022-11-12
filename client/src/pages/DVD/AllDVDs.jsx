@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import useAuth from "../../hooks/useAuth";
+import styled from "styled-components";
 
-// Import npm packages
+//Import npm packages
 import { Container } from "react-bootstrap";
 
 // Import components
@@ -10,10 +10,14 @@ import DVDTable from "../../components/features/DVDMenu/DVDTable";
 import ErrorPage from "../../components/common/ErrorPage";
 import Loader from "../../components/common/Loader";
 
-const AllDVDs = () => {
-  // HOOK: CONTEXT FOR AUTH
-  const { user } = useAuth();
+const StyledPageWrapper = styled.div`
+  min-height: 90vh;
+  padding-top: 3rem;
+  background-color: var(--highlight);
+  justify-content: center;
+`;
 
+const AllDVDs = () => {
   // HOOK: SETTING COMPONENT STATE (& init values)
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -81,10 +85,10 @@ const AllDVDs = () => {
  
   // DEFAULT LOAD: SUCCESS API CALL
   return (
-    <Container className="my-5">
+    <StyledPageWrapper>
       <h1 className="text-center">Our DVDs</h1>
       <DVDTable data={data} sortOrder={sortOrder} onSort={sort} />
-    </Container>
+    </ StyledPageWrapper>
   );
 };
 
