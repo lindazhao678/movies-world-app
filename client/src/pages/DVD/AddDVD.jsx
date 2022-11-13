@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Row, Col, Form, InputGroup } from "react-bootstrap";
+import { Row, Col, Form, InputGroup, Container } from "react-bootstrap";
 
 import dvdService from "../../services/dvdService";
 import MWButton from "../../components/common/MWButton";
 import FormCard from "../../components/common/FormCard";
+import ErrorPage from "../../components/common/ErrorPage";
 
 const AddDVD = () => {
   // HOOK: SETTING COMPONENT STATE (& init values)
@@ -16,6 +17,8 @@ const AddDVD = () => {
     image: "",
   });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
 
   // Destructure data state nested object properties & instance of useNavigate class
   const { title, genre, rate, stock } = data;
@@ -52,10 +55,20 @@ const AddDVD = () => {
       navigate("/dvd");
     } catch (err) {
       console.log(err?.response);
+      setError(true);
       window.scroll({ top: 0, left: 0, behavior: "smooth" });
     }
     setLoading(false);
   };
+
+    // CONDITIONAL LOAD: ERROR
+    if (error) {
+      return (
+        <Container className="text-center">
+          <ErrorPage />
+        </Container>
+      );
+    }
 
   return (
     <FormCard title={"Add DVD"}>

@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Row, Col, Form, InputGroup } from "react-bootstrap";
+import { Row, Col, Form, InputGroup, Container } from "react-bootstrap";
 import styled from "styled-components";
 import FormCard from "../../components/common/FormCard";
 import dvdService from "../../services/dvdService";
 import MWButton from "../../components/common/MWButton";
 import ErrorPage from "../../components/common/ErrorPage";
-import Loader from "../../components/common/Loader";
 
 // Custom Styles
 const PreviewImage = styled.img`
@@ -130,15 +129,6 @@ const EditDVD = () => {
     return (
       <Container className="text-center">
         <ErrorPage />
-      </Container>
-    );
-  }
-
-  // CONDITIONAL LOAD: LOADING
-  if (loading) {
-    return (
-      <Container>
-        <Loader />
       </Container>
     );
   }
