@@ -23,13 +23,13 @@ try {
     const db = admin.firestore()
     const bucket = admin.storage().bucket()
 
-    // Testing : DB ping function
+    // Testing: DB ping function
     const dbPing = db.listCollections()
-    .then(collections =>{
-        for(let collection of collections)
-        dbStartup(`Found db collection with id: ${collection.id}`)
-    })
-    
+        .then(collections => {
+            for (let collection of collections)
+                dbStartup(`Found db collection with id: ${collection.id}`)
+        })
+
     // Export database variable methods for use in our application
     module.exports = { db, bucket, dbPing }
 

@@ -7,9 +7,9 @@ import styled from "styled-components";
 
 const Styles = styled.div`
   .container {
-    min-height: 80vh;
+    min-height: 70vh;
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
   }
   .lead-card {
     margin: 3rem auto;

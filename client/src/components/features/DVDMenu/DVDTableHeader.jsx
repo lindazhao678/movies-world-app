@@ -18,23 +18,18 @@ const DVDTableHeader = ({ onSort, sortOrder, disableSort }) => {
   return (
     <thead>
       <tr>
-        {columns.map((column) => 
-           disableSort ? (
+        {columns.map((column) =>
+          disableSort ? (
+            <th key={column.path || column.key}>{column.label}</th>
+          ) : (
             <th
-            key={column.path || column.key}
-          >
-            {column.label}
-          </th>
-          ):(
-            <th
-            key={column.path || column.key}
-            className={column.path === "rate" && "cursor-pointer"}
-            onClick={onSort}
-          >
-            {column.label} {column.path === "rate" && renderSortIcon()}
-          </th>
+              key={column.path || column.key}
+              className={column.path === "rate" && "cursor-pointer"}
+              onClick={onSort}
+            >
+              {column.label} {column.path === "rate" && renderSortIcon()}
+            </th>
           )
-         
         )}
       </tr>
     </thead>

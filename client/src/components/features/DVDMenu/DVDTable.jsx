@@ -7,11 +7,15 @@ import DVDTableBody from "./DVDTableBody";
 const StyledTable = styled(Table)`
   width: 70%;
   margin: 0 auto;
-`
+`;
 const DVDTable = ({ data, sortOrder, onSort, disableSort }) => {
   return (
-    <StyledTable striped bordered hover variant="dark" className="mt-5">
-      <DVDTableHeader sortOrder={sortOrder} onSort={onSort} disableSort={disableSort} />
+    <StyledTable striped bordered hover variant="dark">
+      <DVDTableHeader
+        sortOrder={sortOrder}
+        onSort={onSort}
+        disableSort={disableSort}
+      />
       <DVDTableBody data={data} />
     </StyledTable>
   );

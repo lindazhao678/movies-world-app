@@ -13,7 +13,7 @@ const StyledCard = styled(Card)`
 const GalleryCard = ({ movie }) => {
   return (
     <StyledCard>
-      <Card.Img variant="top" src={movie.Poster} style={{ height: '20rem' }}/>
+      <Card.Img variant="top" src={movie.Poster} style={{ height: "20rem" }} />
       <Card.Body>
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>Year: {movie.Year}</Card.Text>

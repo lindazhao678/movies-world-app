@@ -7,12 +7,12 @@ const fileServerUpload = (req, res, next) => {
         // 1. Store file
         const file = req.files.image
         debugFile(`Image for server processing: ${file.name}`)
-        
+
         // 2. Append unique filename extension
         const filename = Date.now() + '_' + file.name
         debugFile(`Unique filename: ${filename}`)
 
-        // 3. Declare server storage directory path (where the hell are we storing this file!)
+        // 3. Declare server storage directory path
         const uploadPath = path.join(
             __dirname,
             '../../public/uploads/',
@@ -29,7 +29,7 @@ const fileServerUpload = (req, res, next) => {
                 next()
             })
             .catch(err => {
-                if(err) return next(ApiError.internal('Your file request could not be processed at this time', err))
+                if (err) return next(ApiError.internal('Your file request could not be processed at this time', err))
             })
     } else {
         next()

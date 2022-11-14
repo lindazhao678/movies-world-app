@@ -11,7 +11,7 @@ import ErrorPage from "../../components/common/ErrorPage";
 import Loader from "../../components/common/Loader";
 
 const StyledPageWrapper = styled.div`
-  min-height: 90vh;
+  min-height: 100vh;
   padding-top: 3rem;
   background-color: var(--highlight);
   justify-content: center;

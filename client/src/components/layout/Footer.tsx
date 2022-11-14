@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
-  background-color: #cbd5e1;
+  background-color: var(--highlight-dark);
 `;
 
 const Footer: FC = () => {

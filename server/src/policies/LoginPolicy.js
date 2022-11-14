@@ -18,7 +18,7 @@ module.exports = {
         // Run the output of the function against test cases
         if (error) {
             debugJoi(error)
-            switch (error.details[0].context.key) {   
+            switch (error.details[0].context.key) {
 
                 case 'email':
                     next(ApiError.badRequest('You must provide a valid email'))

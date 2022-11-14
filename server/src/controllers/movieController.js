@@ -45,7 +45,7 @@ module.exports = {
             // Store the document query in variable
             const movieRef = db.collection('movies')
 
-            // search the movie that title start with search keywords and sort by stock
+            // search movies whose title starts with the search keywords. the results is sorted by the title & stock
             // const snapshot = await movieRef
             //     .where("title", ">=", "a")
             //     .where('title', '<=', "a" + '\uf8ff')
@@ -60,6 +60,7 @@ module.exports = {
                 .orderBy("title", "asc")
                 .orderBy("rate", "desc")
                 .get()
+
             // [400 error] Check for non-existent docs
             if (snapshot.empty) {
                 return next(ApiError.badRequest('The movies you were looking for do not exist'))
@@ -143,7 +144,7 @@ module.exports = {
         }
     },
 
-    // Update route
+    // Update movie
     async updateMovieById(req, res, next) {
         // Testing data posted to server
         debugWrite(req.body)
@@ -192,7 +193,7 @@ module.exports = {
         }
     },
 
-    // Delete route
+    // Delete movie
     async deleteMovieById(req, res, next) {
         debugWrite(req.params);
         // Delete document image file from storage 

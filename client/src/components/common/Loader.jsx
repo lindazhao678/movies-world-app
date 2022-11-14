@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const Styles = styled.div`
-  /* GRID STYLING */
   .spinner-box {
     height: 50vh;
     display: flex;
@@ -11,7 +10,6 @@ const Styles = styled.div`
     background-color: transparent;
   }
 
-  /* X-ROTATING BOXES */
   .configure-border-1 {
     width: 115px;
     height: 115px;
@@ -43,7 +41,6 @@ const Styles = styled.div`
     background-color: var(--primary);
   }
 
-  /* KEYFRAMES */
   @keyframes configure-clockwise {
     0% {
       transform: rotate(0);

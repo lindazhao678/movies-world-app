@@ -94,7 +94,7 @@ module.exports = {
             const userJSON = await userDetailsToJSON(userMatch[0].id);
 
             // Return User object + token
-            res.send({                
+            res.send({
                 token: jwtSignUser(userJSON)
             });
 

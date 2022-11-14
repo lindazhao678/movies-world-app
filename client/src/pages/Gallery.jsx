@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+
 import styled from "styled-components";
 import { Container, Form, Row, Col } from "react-bootstrap";
+
+import Loader from "../components/common/Loader";
 import ErrorPage from "../components/common/ErrorPage";
 import { toast } from "react-toastify";
 import MWButton from "../components/common/MWButton";
@@ -27,9 +30,9 @@ const Gallery = () => {
     searchMovies(inputElement.current.value);
   };
 
-  useEffect(()=>{
-    searchMovies('avengers')
-  },[]);
+  useEffect(() => {
+    searchMovies("avengers");
+  }, []);
   // search movies
   const searchMovies = async (query) => {
     try {
@@ -39,14 +42,13 @@ const Gallery = () => {
       const res = await axios.get(
         `https://www.omdbapi.com/?&apikey=b66985aa&s=${query}&page=${page}`
       );
-      if(res.data.Search){
+      if (res.data.Search) {
         setMovies(res.data.Search);
         setPage(page);
-      }else if(res.data.Error){
+      } else if (res.data.Error) {
         //setError(true);
         toast.error(res.data.Error);
       }
-
     } catch (err) {
       console.log(err);
       setError(true);
@@ -59,6 +61,15 @@ const Gallery = () => {
     return (
       <Container className="text-center">
         <ErrorPage />
+      </Container>
+    );
+  }
+
+  // CONDITIONAL LOAD: LOADING
+  if (loading) {
+    return (
+      <Container>
+        <Loader />
       </Container>
     );
   }

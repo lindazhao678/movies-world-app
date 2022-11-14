@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-// Import npm packages
+
 import MWNavLink from "../components/common/MWNavLink";
 import Showcase from "../components/common/Showcase";
 import { getNewArrivalsData, getTopPicksData } from "../services/homePageData";
@@ -25,10 +25,10 @@ const Home = () => {
   return (
     <Fragment>
       <Hero>
-          <h1 className="my-5">Welcome to the Movies World DVDs Shop</h1>
-          <MWNavLink to={"/register"} className={'my-5'}>
-            Sign Up
-          </MWNavLink>
+        <h1 className="my-5">Welcome to the Movies World DVDs Shop</h1>
+        <MWNavLink to={"/register"} className={"my-5"}>
+          Sign Up
+        </MWNavLink>
       </Hero>
       <Showcase
         title={"Our New Arrival"}

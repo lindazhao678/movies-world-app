@@ -24,7 +24,11 @@ const StyledLink = styled(Link)`
 `;
 
 const MWNavLink = ({ to, children, className }) => {
-  return <StyledLink to={to} className={className}>{children}</StyledLink>;
+  return (
+    <StyledLink to={to} className={className}>
+      {children}
+    </StyledLink>
+  );
 };
 
 export default MWNavLink;

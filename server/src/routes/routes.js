@@ -17,6 +17,6 @@ module.exports = () => {
     // Sub-Routes
     router.use('/auth', authRoutes())
     router.use('/movie', movieRoutes())
-    
+
     return router
 }

@@ -1,15 +1,15 @@
 import React from "react";
-import { Col, Row} from 'react-bootstrap'
+import { Col, Row } from "react-bootstrap";
 import GalleryCard from "./GalleryCard";
 
 const GalleryCards = ({ movies }) => {
-    console.log()
+  console.log();
   return (
     <Row className="mt-5">
       {movies.map((movie) => (
         <Col xs={3} className="mb-4">
-        <GalleryCard movie={movie} />
-       </Col>
+          <GalleryCard movie={movie} />
+        </Col>
       ))}
     </Row>
   );

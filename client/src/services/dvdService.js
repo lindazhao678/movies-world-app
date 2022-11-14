@@ -17,7 +17,7 @@ function post(data) {
   );
 };
 
-// GET BY ID -Detail
+// GET BY ID - Detail
 function getById(id) {
   return api.get('/api/movie/' + id);
 };

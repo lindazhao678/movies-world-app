@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledDashboard = styled.div`
   min-height: 90vh;
-  background-color: #cbd5e1;
+  background-color: var(--highlight);
   display: flex;
   justify-content: center;
 `;

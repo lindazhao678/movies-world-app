@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import MWNavLink from "../../common/MWNavLink";
@@ -28,9 +27,7 @@ const DVDTableBody = ({ data }) => {
             <td>{item.rate}</td>
             <td>{item.stock}</td>
             <td className="text-center">
-              <StyledLink to={`/dvd/${item.id}`}>
-                Details
-              </StyledLink>
+              <StyledLink to={`/dvd/${item.id}`}>Details</StyledLink>
             </td>
           </tr>
         ))}
