@@ -134,7 +134,7 @@ const EditDVD = () => {
   }
 
   return (
-    <FormCard title={"Add DVD"}>
+    <FormCard title={"Edit DVD"}>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Title</Form.Label>

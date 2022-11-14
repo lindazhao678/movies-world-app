@@ -12,7 +12,7 @@ import { Container } from "react-bootstrap";
 const DetailsCard = styled.div`
   margin: 5rem auto 2rem;
   padding: 2rem 2rem;
-  height: 30vw;
+  height: 35vw;
   width: 80vh;
   background: var(--highlight-light);
   border-radius: 20px;
@@ -42,7 +42,7 @@ const Details = () => {
 
   // HOOK: ON-LOAD SIDE EFFECTS
   useEffect(() => {
-    // Pre-population fetch currency function (based on id)
+    // Pre-population fetch function (based on id)
     async function fetchDVDs() {
       try {
         const response = await dvdService.getById(id);
@@ -114,7 +114,7 @@ const Details = () => {
   }
 
   return (
-    <Container>
+    <Container className="mb-5">
       <DetailsCard>
         <h1 className="py-5 text-center">{title}</h1>
         <div className="info-section row align-items-center justify-content-center">

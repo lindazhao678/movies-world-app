@@ -14,7 +14,7 @@ const Styles = styled.div`
   .lead-card {
     margin: 3rem auto;
     padding: 2rem 2rem;
-    height: 50vw;
+    height: 65vw;
     width: 60vw;
     background: var(--highlight-light);
     border-radius: 20px;

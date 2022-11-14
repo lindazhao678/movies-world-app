@@ -12,7 +12,7 @@ module.exports = {
         try {
             // Store the document query in variable & call GET 
             const movieRef = db.collection('movies')
-            const snapshot = await movieRef
+            const snapshot = await movieRef.orderBy(req.query.sortName, req.query.sortOrder)
                 .get()
 
             // [400 error] Check for non-existent docs
@@ -35,7 +35,7 @@ module.exports = {
                 res.send(movies)
             }
         } catch (err) {
-            return next(ApiError.internal("The currencies could not be retrieved", err))
+            return next(ApiError.internal("The movies could not be retrieved", err))
         }
     },
 
@@ -53,7 +53,7 @@ module.exports = {
             //     .orderBy("stock", "asc")
             //     .get()
 
-            // Search the movie that title start with search keyworks and sort by rate
+            // Search movies whose title starts with the search keywords. The results is sorted by the title & rate
             const snapshot = await movieRef
                 .where("title", ">=", `${req.query.title}`)
                 .where('title', '<=', `${req.query.title}` + '\uf8ff')

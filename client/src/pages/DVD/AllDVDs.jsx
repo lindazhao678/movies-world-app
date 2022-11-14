@@ -30,7 +30,7 @@ const AllDVDs = () => {
   // HOOK: ON-LOAD SIDE EFFECTS
   useEffect(() => {
     if (effectRan.current === false) {
-      fetchDVDs();
+      fetchDVDs(null, "rate_desc");
       setLoading(false);
       // CLEAN UP FUNCTION
       return () => {
@@ -40,14 +40,16 @@ const AllDVDs = () => {
   }, []);
 
   // COMPONENT FUNCTIONS
-  async function fetchDVDs() {
+  async function fetchDVDs(e, initSortOrder) {
     try {
-      const response = await dvdService.get();
+      const newSortOrder = initSortOrder || (sortOrder=== "rate_desc" ? "rate_asc" : "rate_desc");
+      setSortOrder(newSortOrder);
+      const sortArray = newSortOrder.split('_');
+      const response = await dvdService.get(sortArray[0], sortArray[1]);
       const data = await response.data;
       setData(data);
-      sort(null, "rate_desc", data);
     } catch (err) {
-      console.log(err?.response);
+      console.log(err);
       setError(true);
     }
   }
@@ -69,25 +71,13 @@ const AllDVDs = () => {
       </Container>
     );
   }
-  function sort(e, initSortOrder, initData) {
-    const newSortOrder = initSortOrder || (sortOrder=== "rate_desc" ? "rate_asc" : "rate_desc");
-    setSortOrder(newSortOrder);
-    const newData = initData || data;
-    newData.sort(function (a, b) {
-      if (newSortOrder === "rate_desc") {
-        return b.rate - a.rate;
-      } else {
-        return a.rate - b.rate;
-      }
-    });
-    setData(newData);
-  }
  
   // DEFAULT LOAD: SUCCESS API CALL
   return (
     <StyledPageWrapper>
       <h1 className="text-center">Our DVDs</h1>
-      <DVDTable data={data} sortOrder={sortOrder} onSort={sort} />
+      <DVDTable data={data} sortOrder={sortOrder} 
+      onSort={fetchDVDs} />
     </ StyledPageWrapper>
   );
 };
