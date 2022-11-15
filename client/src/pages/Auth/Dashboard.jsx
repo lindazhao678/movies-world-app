@@ -1,6 +1,9 @@
 import React from "react";
 import MWButton from "../../components/common/MWButton";
 import styled from "styled-components";
+import useAuth from "../../hooks/useAuth";
+import Home from "../Home";
+
 
 const StyledDashboard = styled.div`
   min-height: 90vh;
@@ -18,7 +21,8 @@ const StyledCard = styled.div`
 `;
 
 const Dashboard = () => {
-  return (
+  const { user } = useAuth();
+  const dashboard = (
     <StyledDashboard>
       <StyledCard>
         <div className="h-50 d-flex align-items-center justify-content-center">
@@ -40,6 +44,12 @@ const Dashboard = () => {
         </div>
       </StyledCard>
     </StyledDashboard>
+  );
+  return (
+    <div>
+    {(user && user.isAdmin) ? dashboard: <Home />}
+    </div>
+   
   );
 };
 

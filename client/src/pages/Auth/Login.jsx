@@ -40,7 +40,7 @@ const Login = () => {
       loginSaveUser(response.data);
       navigate("/dashboard");
     } catch (e) {
-      console.log(e?.response);
+      console.log(e);
     }
   };
 
