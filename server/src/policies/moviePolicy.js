@@ -9,8 +9,8 @@ module.exports = {
         const schema = Joi.object({
             title: Joi.string().min(3).max(50).required(),
             genre: Joi.string().min(3).max(50).required(),
-            rate: Joi.number().required(),
-            stock: Joi.number().required(),
+            rate: Joi.number().positive().min(1).max(10).required(),
+            stock: Joi.number().positive().min(1).max(100).required(),
             image: Joi.any(),
             uploadedFile: Joi.string()
         })
