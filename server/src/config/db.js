@@ -1,7 +1,7 @@
 // Import of admin SDK libraries
 var admin = require("firebase-admin")
 const config = require('./config')
-var serviceAccount = require(config.db.serviceAccountKey)
+var serviceAccount = JSON.parse(Buffer.from(config.db.serviceAccountKey, 'base64').toString('ascii'));
 
 // Import debug logs
 const dbStartup = require('debug')('app:db')

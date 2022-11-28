@@ -15,7 +15,7 @@ module.exports = {
 
     // Approved CORS root URLs
     corsAllowedOptions: [
-        process.env.CORS_WHITELIST_DEV,
-        process.env.CORS_WHITELIST_PROD
+        process.env.CORS_WHITELIST_1,
+        process.env.CORS_WHITELIST_2
     ]
 }
